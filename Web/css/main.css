@@ -1,0 +1,325 @@
+
+/* ==========================================================================
+
+	Google Font
+
+========================================================================== */
+
+@import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&subset=devanagari,latin-ext';
+
+@import 'https://fonts.googleapis.com/css?family=Oranienbaum&subset=cyrillic,cyrillic-ext,latin-ext';
+
+@font-face {font-family: 'Poppins', sans-serif;font-family: 'Oranienbaum', serif;}
+
+/* ==========================================================================
+
+	Base styles: opinionated defaults
+
+========================================================================== */
+
+body{ background-color:#FFF;font-family: 'Poppins', sans-serif; color:#848484; font-weight:300; font-size:14px; line-height:27px; overflow-x: none}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, img, main {display: block}
+
+audio, canvas, video {display: inline-block;*display:inline;*zoom:1}
+
+blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}
+
+h1,h2,h3,h4,h5,h6{ color:#343434}
+
+::-moz-selection {background: #222222;color:#ffF;text-shadow: none;}
+
+::selection {background: #222222;color:#ffF;text-shadow: none;}
+
+a,input,textarea,button,body,img{transition-delay: 0s;transition-duration: 0.6s;transition-property: all;transition-timing-function: ease;}
+
+a {text-decoration: none;outline: none;color: #222222;}
+
+a:hover{ text-decoration:none; color:#222222}
+
+a:focus, img:focus, button:focus, .btn:focus {outline:none;text-decoration: none;}
+
+/* ==========================================================================
+
+	Header styles
+
+========================================================================== */
+
+.header { padding-top:22px; padding-bottom:3px}
+
+.header.header-fixed-top{ width:100%; position:fixed; top:0;background-color:rgba(255,255,255,0.9); z-index:60; padding:10px 0}
+
+.header.header-fixed-top .menu-expanded{ padding-top:15px}
+
+.header hgroup{ padding:0 15px; overflow:hidden}
+
+.header hgroup h1{ padding:0; margin:0}
+
+.header hgroup h1 a{ display:block; float:left; max-width:81px}
+
+.main-menu {background-color: transparent;position: fixed;width: 100%;height:100%;top: 0px;right: 0px;z-index:2;}
+
+.menu,.linee {cursor: pointer;}
+
+.menu.over{background-color:rgba(255,255,255,0.8);}
+
+.nav-icon{ float:right;font-family: 'Oranienbaum', serif; display:block; position:relative; text-transform:uppercase; font-size:14px; letter-spacing:4px; color:#222222;}
+
+.menu {transition: all 0.40s ease-out; width:60px; height:30px; cursor:pointer; position:absolute; right:0; top:0; z-index:5; border-radius:100%;}
+
+.nav-icon p{ position:absolute; right:0; top:0; background-image:url(../images/nav.png); background-repeat:no-repeat; background-position:0 7px; padding-left:11px}
+
+.over {transform: scale(100);transition: all 0.350s ease-in;cursor: default;}
+
+.linea1 {background: #222222;height: 2px;width: 15px;position: absolute;right: 33px;top: 33px;z-index:90;transition: all 0.3s;opacity:0}
+
+.linea1.overL1,.linea3.overL3{opacity:1}
+
+.linea2 {background: #222222;height: 2px;width: 15px;position: absolute;right: 33px;top: 38px;opacity: 1;transition: opacity 0.5s;z-index:90;opacity:0}
+
+.linea3 {background: #222222;height: 2px;width: 15px;position: absolute;right: 33px;top: 43px;z-index:90;opacity:0}
+
+.overL1 {animation: closetop 1s forwards;animation-direction: alternate;cursor: pointer;}
+
+.overL2 {opacity: 0;transition: opacity 0.5s;cursor: pointer;}
+
+.overL3 {animation: closebottom 1s forwards;animation-direction: alternate;cursor: pointer;}
+.copyrights{
+	text-indent:-9999px;
+	height:0;
+	line-height:0;
+	font-size:0;
+	overflow:hidden;
+}
+
+@keyframes closetop {
+
+0% {transform: translateY(5px) rotate(0deg);}
+
+25% {transform: translateY(5px) rotate(0deg);}
+
+75% {transform: translateY(5px) rotate(-45deg);}
+
+100% {transform: translateY(5px) rotate(-45deg);}
+
+}
+
+@keyframes closebottom {
+
+0% {transform: translateY(0px) rotate(0deg);}
+
+25% {transform: translateY(-5px) rotate(0deg);}
+
+75% {transform: translateY(-5px) rotate(45deg);}
+
+100% {transform: translateY(-5px) rotate(45deg);}
+
+}
+
+.main-menu {visibility: hidden;text-align:center;opacity: 0;transition: all 0.300s;transition-delay: 0s;}
+
+.overmain {visibility: visible;background-color:rgba(255,255,255,0.8);opacity: 1; z-index:60; top:0;padding-top:10%;transition: all 0.400s;
+
+ transition-delay: 0.370s;}
+
+.main-menu ul {list-style-type: none; text-align:center; margin:0; padding:0; }
+
+.main-menu ul li {width:100%; display:inline-block;font-family: 'Oranienbaum', serif; text-transform:uppercase; font-size:30px; margin-bottom:30px; font-weight:400; position:relative;z-index:1;  transition: all 0.400s;transition-delay: 0.370s;}
+
+.main-menu ul li{ position:relative; ; }
+
+.main-menu ul li:after {content: "";position:absolute;bottom:52%; left:0; right:0; margin:0 auto;width:0; height:1px;background:#222222;
+
+z-index:2;transition: width 0.3s; z-index:1}
+
+.main-menu ul li:hover:after{ width:15%; }
+
+.main-menu ul li.active:after{ width:15%;}
+
+.main-menu ul li a {text-decoration: none; color:#222222; position:relative; z-index:2; display:block}
+
+/* ==========================================================================
+
+	Main Wrapper
+
+========================================================================== */
+
+.main-wrapper,.main-wrapper-inner{background-color:#FFF;position:relative; z-index:6;}
+
+.wrapper{background-color:#FFF; padding:0 25px;position:relative; z-index:6; margin-bottom:396px}
+
+/* ==========================================================================
+
+	Footer
+
+========================================================================== */
+
+.footer{ background-color:#222222; position:fixed; z-index:1; width:100%; bottom:0; left:0; right:0; padding-top:104px; padding-bottom:115px; text-align:center; color:#999999; font-size:10px; letter-spacing:1px; font-weight:400}
+
+.footer a{ color:#999999;}
+
+.footer a:hover{ color:#FFF}
+
+.footer img{ margin:0 auto}
+
+.footer h3{ text-align:center; color:#FFF;font-family: 'Oranienbaum', serif; text-transform:uppercase; letter-spacing:2px; font-size:21px; position:relative}
+
+.footer h3:after{ content:""; margin:0 auto; display:block; position:absolute; bottom:-20px; left:0; right:0; width:63px; height:3px; background-color:#FFF}
+
+.footer p{ line-height:12px; font-weight:300}
+
+.footer-bot{ padding-top:58px}
+
+.copy-right{ padding-top:14px}
+
+.padding-top{ padding-top:16px}
+
+.made-by i{ color:#e8496a}
+
+.social{ text-align:center; padding:0; margin:0; list-style:none}
+
+.social li{ display:inline-block; margin:0 5px; font-size:12px}
+
+/* ==========================================================================
+
+	Inner
+
+========================================================================== */
+
+.main-wrapper-inner{ margin-bottom:396px}
+
+.wrapper-inner{ margin:auto; width:100%; max-width:1031px; padding-top:71px; padding-bottom:20px}
+
+.inner-left{ float:left; width:100%; max-width:331px}
+
+.inner-right{ float:right; width:100%; max-width:700px}
+
+.wrapper-inner p{ color:#343434; font-size:13px; line-height:30px; font-weight:400;padding-bottom:20px; font-weight:300}
+
+/* ==========================================================================
+
+	Details Gallery
+
+========================================================================== */
+
+.details-content,.about-content,.contact-wrapper{ overflow:hidden}
+
+.details-left header h3,.about-content h3{ color:#343434; margin-top:0}
+
+.details-left header h4,.details-left header h5{ font-size:13px; margin-top:0; font-weight:400}
+
+.details-left header h4{ font-weight:600; padding-top:22px}
+
+.details-content header{ margin-bottom:67px}
+
+.details-content header h2,.details-content header h3{ font-size:13px; font-weight:400;margin-top:0}
+
+.details-content header h2{ font-weight:600; }
+
+.details-image{ margin-bottom:80px}
+
+/* ==========================================================================
+
+	About
+
+========================================================================== */
+
+.about-content{ margin-bottom:58px}
+
+.about-content header h4{ margin-top:0}
+
+.about-content h3{ padding-bottom:6px}
+
+/* ==========================================================================
+
+	Contact
+
+========================================================================== */
+
+.map-wrapper{ width:100%;height:453px; background-color:#e6e4e4}
+
+.map-wrapper #surabaya {width: 100%;height: 100%;}
+
+.contact-wrapper{ margin-top:80px; margin-bottom:90px;}
+
+.contact-wrapper .phone{ font-size:16px; line-height:17px; font-weight:600; padding-bottom:0; margin-bottom:0}
+
+.contact-wrapper  p a:hover{ text-decoration:underline}
+
+.contact-wrapper header h4{ margin-top:0}
+
+.contact-form{ overflow:hidden; margin-top:43px}
+
+.contact-form label{ font-weight:300; font-size:14px; width:100%; max-width:315px; float:left; margin-bottom:57px}
+
+.contact-form label+label{ float:right}
+
+.contact-form label+label+div+label{ float:none; max-width:100%; margin-bottom:43px}
+
+.contact-form label span{ color:#fb5353}
+
+.contact-form label input,.contact-form label textarea{ background-color:inherit; border:none; border-bottom:1px solid #eeeeee; display:block; width:100%; padding:0 10px; outline:none}
+
+.contact-form label input:focus,.contact-form label textarea:focus{ border-bottom-color:#404040}
+
+.contact-form input[type="submit"]{ border:none; outline:none; cursor:pointer; text-align:center; display:inline-block; font-size:14px; text-transform:uppercase; letter-spacing:1px; color:#FFF; line-height:47px; background-color:#fb5353; padding:0 29px}
+
+.contact-form input[type="submit"]:hover{ background-color:#222222}
+
+.error_message{ color:#e84d49}
+
+#success_page h3,#success_page p{color:#60ca6f }
+
+/* ==========================================================================
+
+	Blog
+
+========================================================================== */
+
+
+
+.post { margin-bottom:74px}
+
+.post figure{ margin-bottom:76px}
+
+.post .date{ font-weight:600; font-size:16px; color:#343434}
+
+.post .cat-pan a:hover,.post header h3 a:hover{ text-decoration:underline}
+
+.post header h3{ margin-top:0}
+
+.comments-pan{border-top:1px solid #eeeeee; padding-top:15px}
+
+.comments-pan h3{border-bottom:1px solid #eeeeee; padding-bottom:34px; margin-bottom:52px}
+
+.comments-reply,.reply-pan{ padding:0; margin:0; list-style:none}
+
+.comments-reply li{ display:block; border-bottom:1px solid #eeeeee; overflow:hidden; padding-bottom:51px; margin-bottom:39px}
+
+.comments-reply li figure{ float:left; width:70px; height:70px; background-color:#eeeeee; border-radius:100%; overflow:hidden}
+
+.comments-reply li section{ float:left; padding-left:30px; font-size:13px; line-height:30px; color:#343434;width: 92%;}
+
+.comments-reply li section .date-pan{ font-size:12px; line-height:13px; padding-bottom:25px}
+
+.comments-reply li section h4{font-weight:300; color:#404040; font-size:16px; margin-bottom:6px; margin-top:0}
+
+.comments-reply li section h4 a{ font-size:12px; color:#fb5353;font-weight:400; display:inline-block; padding-left:20px}
+
+.reply-pan{ clear:both; display:block; margin-left:100px;padding-top:39px }
+
+.reply-pan li{ border-bottom:none;border-top:1px solid #eeeeee; padding-bottom:0; margin-bottom:0;padding-top:38px;}
+
+.commentys-form h4{ font-size:24px; font-weight:300}
+
+.commentys-form form{ margin-top:30px}
+
+.commentys-form input[type="text"],.commentys-form input[type="email"],.commentys-form input[type="url"],.commentys-form textarea{ font-size:14px; line-height:22px; color:#404040; padding-bottom:26px; border-bottom:1px solid #eeeeee; width:100%; display:block; border-left:none; border-right:none; border-top:none; background-color:transparent; outline:none}
+
+.commentys-form textarea{ margin-top:57px}
+
+.commentys-form input[type="text"]:focus,.commentys-form input[type="email"]:focus,.commentys-form input[type="url"]:focus,.commentys-form textarea:focus{ border-bottom-color:#000}
+
+.commentys-form input[type="button"]{ padding:0 36px; text-transform:uppercase; display:inline-block; font-size:14px; line-height:47px; color:#FFF; font-weight:300; text-align:center; border:none; outline:none; background-color:#fb5353; margin-top:50px; margin-bottom:60px}
+
+.commentys-form input[type="button"]:hover{ background-color:#ff5c5c}

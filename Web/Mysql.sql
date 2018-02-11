@@ -1,0 +1,11 @@
+CREATE SCHEMA image;
+
+USE image;
+
+CREATE TABLE IF NOT EXISTS image(
+  id INT UNSIGNED AUTO_INCREMENT,
+  image_path VARCHAR(80),
+  image_title VARCHAR(50),
+  url VARCHAR(191),
+  PRIMARY KEY (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
