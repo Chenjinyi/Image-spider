@@ -10,23 +10,40 @@
 date_default_timezone_set('PRC'); //设置时区
 
 $stime=microtime(true);
-
+$NDate=date('Y-m-d');
 if (!empty($mode)) {//设置爬取mode URL设置
     switch ($mode) {
-        case 8:
-            $mode_name = 'week';
+        case 9:
+            $url = "http://api.vc.bilibili.com/link_draw/v2/Doc/ranklist?biz=1&category=&rank_type=week&date=".$NDate."&page_num=0&page_size=50";
             break;
-        case 9;
-            $mode_name= 'month';
+        case 10:
+            $url = "http://api.vc.bilibili.com/link_draw/v2/Doc/ranklist?biz=1&category=&rank_type=month&date=".$NDate."&page_num=0&page_size=50";
             break;
-        case 10;
-            $mode_name= 'day';
+        case 11:
+            $url = "http://api.vc.bilibili.com/link_draw/v2/Doc/ranklist?biz=1&category=&rank_type=day&date=".$NDate."&page_num=0&page_size=50";
+            break;
+        case 12:
+            $url=  "https://api.vc.bilibili.com/link_draw/v2/Doc/ranklist?biz=2&category=cos&rank_type=week&date=".$NDate."&page_num=0&page_size=50";
+            break;
+        case 13:
+            $url=  "https://api.vc.bilibili.com/link_draw/v2/Doc/ranklist?biz=2&category=cos&rank_type=month&date=".$NDate."&page_num=0&page_size=50";
+            break;
+        case 14:
+            $url=  "https://api.vc.bilibili.com/link_draw/v2/Doc/ranklist?biz=2&category=cos&rank_type=day&date=".$NDate."&page_num=0&page_size=50";
+            break;
+        case 15:
+            $url=  "https://api.vc.bilibili.com/link_draw/v2/Doc/ranklist?biz=2&category=sifu&rank_type=week&date=".$NDate."&page_num=0&page_size=50";
+            break;
+        case 16:
+            $url="https://api.vc.bilibili.com/link_draw/v2/Doc/ranklist?biz=2&category=sifu&rank_type=month&date=".$NDate."&page_num=0&page_size=50";
+            break;
+        case 17:
+            $url="https://api.vc.bilibili.com/link_draw/v2/Doc/ranklist?biz=2&category=sifu&rank_type=day&date=".$NDate."&page_num=0&page_size=50";;
             break;
         default:
             echo "参数错误" . PHP_EOL;
             die();
     }
-    $url = "http://api.vc.bilibili.com/link_draw/v2/Doc/ranklist?biz=1&category=&rank_type=".$mode_name."&date=".date('Y-m-d')."&page_num=0&page_size=50";
 
     $ch = curl_init();  //初始化一个cURL会话
     curl_setopt($ch, CURLOPT_URL, $url);//设置需要获取的 URL 地址
@@ -47,53 +64,37 @@ if (!empty($mode)) {//设置爬取mode URL设置
     };//执行一个cURL会话
     $result=json_decode($result);
 
-    $imageIndex=array();
-    foreach ($result->data->items as $a){
-        array_push($imageIndex,$a->item->pictures->img_src);
+    $num=0;
+    foreach (@$result->data->items as $a){
+        $imageNum=0;
+        $user = $a->user->name;$title = $a->item->title;$imageList = $a->item->pictures;
+        foreach ($imageList as $b){
+            $image[$num] = [$title."-".$user."-"."$imageNum"=>$b->img_src];
+            $num++;$imageNum++;
+        }
+        unset($imageNum);
     }
-    $dirName = "Resource".DIRECTORY_SEPARATOR.date('n-d') . '-' . $mode_name."-"."Bilibili";
+
+    $dirName = "Resource".DIRECTORY_SEPARATOR.date('n-d') . '-' ."Bilibili";
     if (!file_exists($dirName)) {
         mkdir($dirName, 0777,true);//创建文件夹
     }
 
-    die();
-    function image_save($file_url, $dir_name, $file_name)
-    { //下载
-        print_r(PHP_EOL.$file_name . PHP_EOL);
-        $image_number = 1;
-        foreach ($file_url as $url) {
-            $image_name = $file_name . '-' . $image_number;
-            $url = "http://" . $url;
-            $format = explode('.',$url);
-
-            if (file_exists($dir_name . DIRECTORY_SEPARATOR . $image_name . "." . $format[3])) {//检测是否存在
+//    print_r($result);
+    foreach ($image as $file){
+        { //下载
+            print_r(PHP_EOL . array_keys($file)[0]);
+            $format=explode(".",$file[array_keys($file)[0]]);$format=".".$format[3];
+            if (file_exists($dirName . DIRECTORY_SEPARATOR .array_keys($file)[0].$format)) {//检测是否存在
                 echo "已存在" . PHP_EOL;
-                continue;
-            }else {
-                if ($image_save = file_get_contents($url)) {
-                    file_put_contents($dir_name . DIRECTORY_SEPARATOR . $image_name . "." . $format[3],$image_save);
-                    $image_number++;
+            } else {
+                if ($imageSave = file_get_contents($file[array_keys($file)[0]])) {
+                    file_put_contents($dirName. DIRECTORY_SEPARATOR . array_keys($file)[0].$format, $imageSave);
                 } else {
-                    print_r("下载错误：" . $url);
+                    print_r("下载错误：" . $file[array_keys($file)[0]]);
                 }
             }
         }
-
-        unset($image_number);
-    }
-
-    $for_num = count($imageIndex) - 1;//获取数组总数
-    for ($i = 0; $i <= $for_num; $i++) {
-        curl_setopt($ch, CURLOPT_URL, $imageIndex[$i]);
-        $image = curl_exec($ch);//抓取页面
-
-        preg_match_all("/image_url.*\d*/", $image, $image_urls);//正则取出图片链接
-
-        $title = $result->data[$i]->title."-".$result->data[$i]->user->first_name.$result->data[$i]->user->last_name;
-        var_dump($title,$image_urls);
-        die();
-        image_save($image_urls, $dirName, $title);
-
     }
 
     curl_close($ch);

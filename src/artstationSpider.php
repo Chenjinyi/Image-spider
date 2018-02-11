@@ -86,20 +86,6 @@ if (!empty($mode)) {//设置爬取mode URL设置
             mkdir($dirName, 0777, true);//创建文件夹
         }
 
-//    $for_num = count($imageIndex) - 1;//获取数组总数
-//    for ($i = 0; $i <= $for_num; $i++) {
-//        curl_setopt($ch, CURLOPT_URL, $imageIndex[$i]);
-//        $image = curl_exec($ch);//抓取页面
-//
-//        preg_match_all("/image_url.*\d*/", $image, $image_urls);//正则取出图片链接
-//
-//        $title = $result->data[$i]->title."-".$result->data[$i]->user->first_name.$result->data[$i]->user->last_name;
-//        var_dump($image_urls);
-//        die();
-//        image_save($image_urls, $dirName, $title);
-//
-//    }
-//    https://cdna.artstation.com/p/assets/images/images/008/352/772/medium/anna-nikonova-aka-newmilky-zoe-12.jpg?1512196050%
         $imageNum = 0;
         foreach ($imageIndex as $i) {
             $i = str_replace("medium", "large", $i);

@@ -4,9 +4,11 @@ bcy-spider
 
 Artstation-spider
 
+BiliBIli-Spider
+
 ## 简介
 
-#### Bcy爬虫 自动爬取半次元COS Bing Artstation .....等图片网站 ,采用PHP编写
+#### Bcy爬虫 自动爬取半次元COS Bing Artstation Bilibili .....等图片网站 ,采用PHP编写
 
 ## 使用方法
 
@@ -44,6 +46,23 @@ php -f Spider.php
 
 8: Artstation User 用户图片
 
+9:BiliBili相簿 画友 周榜
+
+10:BiliBIli相簿 画友 月榜
+
+11:BIliBIli相簿 画友 日榜
+
+12:BIliBIli相簿 COS 周榜
+
+13:BIliBIli相簿 COS 月榜
+
+14:BIliBIli相簿 COS 日榜
+
+15:BIliBIli相簿 私服 周榜
+
+16:BIliBIli相簿 私服 月榜
+
+17:BIliBIli相簿 私服 日榜
 
 By:Franary
 
@@ -53,7 +72,7 @@ Github:https://github.com/Chenjinyi
 
 #### 已知bug
 
-某些图片爬取时返回504 error	
+某些图片爬取时返回error	
 
 概率较低
 
@@ -63,20 +82,16 @@ Github:https://github.com/Chenjinyi
 
 ​	2.某些链接不允许下载
 
-#### 新版本预告
-
-BcySpider2 采用面向对象方式重写
-
 
 #### 版本更新
 
-0.1 绘画区热门爬取完成
+0.1 Bcy绘画区热门爬取完成
 
-0.2 COS区热门爬取完成
+0.2 BcyCOS区热门爬取完成
 
 0.3 Debug
 
-0.4 个人图片爬虫和文章爬虫完成（已不可使用）
+0.4 Bcy个人图片爬虫和      Bcy文章爬虫完成（已不可使用）
 
 0.5 优化爬虫
 
@@ -86,9 +101,11 @@ BcySpider2 采用面向对象方式重写
 
 0.8 版本大更新-交互式命令行爬虫
 
-0.9 新增加Artstation爬虫 （0.1测试版）
+0.9 新增加Artstation爬虫 （测试版）
 
 1.0 新增加Artstation 用户爬虫
+
+1.1 新增加BiliBIli 相簿 绘画 COS 私服 日榜 周榜 月榜
 
 
 
