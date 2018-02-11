@@ -40,6 +40,23 @@ print_r("
 
 8: Artstation User 用户图片
 
+9:BiliBili相簿 画友 周榜
+
+10:BiliBIli相簿 画友 月榜
+
+11:BIliBIli相簿 画友 日榜
+
+12:BIliBIli相簿 COS 周榜
+
+13:BIliBIli相簿 COS 月榜
+
+14:BIliBIli相簿 COS 日榜
+
+15:BIliBIli相簿 私服 周榜
+
+16:BIliBIli相簿 私服 月榜
+
+17:BIliBIli相簿 私服 日榜
 
 By:Franary
 
@@ -90,18 +107,42 @@ if (!empty($mode)) {//设置爬取mode
             echo PHP_EOL . "开始爬取Artstation User" . PHP_EOL;
             include_once 'src/artstationUserSpider.php';
             die();
-//        case 8:
-//            echo PHP_EOL . "开始爬取Artstation  Trending" . PHP_EOL;
-//            include_once 'src/artstationSpider.php';
-//            die();
-//        case 9:
-//            echo PHP_EOL . "开始爬取Artstation  latest" . PHP_EOL;
-//            include_once 'src/artstationSpider.php';
-//            die();
-//        case 10:
-//            echo PHP_EOL . "开始爬取Artstation  picks" . PHP_EOL;
-//            include_once 'src/artstationSpider.php';
-//            die();
+        case 9:
+            echo PHP_EOL . "开始爬取BiliBili相簿 画友 周榜" . PHP_EOL;
+            include_once 'src/bilibiliSpider.php';
+            die();
+        case 10:
+            echo PHP_EOL . "开始爬取BiliBili相簿 画友 月榜" . PHP_EOL;
+            include_once 'src/bilibiliSpider.php';;
+            die();
+        case 11:
+            echo PHP_EOL . "开始爬取BiliBili相簿 画友 日榜" . PHP_EOL;
+            include_once 'src/bilibiliSpider.php';;
+            die();
+        case 12:
+            echo PHP_EOL . "开始爬取BiliBili相簿 Cos 周榜" . PHP_EOL;
+            include_once 'src/bilibiliSpider.php';;
+            die();
+        case 13:
+            echo PHP_EOL . "开始爬取BiliBili相簿 Cos 月榜" . PHP_EOL;
+            include_once 'src/bilibiliSpider.php';;
+            die();
+        case 14:
+            echo PHP_EOL . "开始爬取BiliBili相簿 Cos 日榜" . PHP_EOL;
+            include_once 'src/bilibiliSpider.php';;
+            die();
+        case 15:
+            echo PHP_EOL . "开始爬取BiliBili相簿 私服  周榜" . PHP_EOL;
+            include_once 'src/bilibiliSpider.php';;
+            die();
+        case 16:
+            echo PHP_EOL . "开始爬取BiliBili相簿 私服 月榜" . PHP_EOL;
+            include_once 'src/bilibiliSpider.php';;
+            die();
+        case 17:
+            echo PHP_EOL . "开始爬取BiliBili相簿 私服 日榜" . PHP_EOL;
+            include_once 'src/bilibiliSpider.php';;
+            die();
         default:
             echo "参数错误" . PHP_EOL;
             die();

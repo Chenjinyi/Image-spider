@@ -1,5 +1,4 @@
 <?php
-
 $ch = curl_init();curl_setopt($ch,CURLOPT_URL,"http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1");
 curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);//抓取
 $result = curl_exec($ch);$result = json_decode($result,true);//链接
