@@ -8,7 +8,13 @@ BiliBIli-Spider
 
 ## 简介
 
-#### Bcy爬虫 自动爬取半次元COS Bing Artstation Bilibili .....等图片网站 ,采用PHP编写
+#### ~~Bcy爬虫~~ 自动爬取半次元COS Bing Artstation Bilibili .....等图片网站 ,采用PHP编写
+
+## 公告
+
+2018.5.26：半次元改为需要登陆后才能爬取现暂不能爬取
+
+其他网站bing bilibili artstation依然可以使用
 
 ## 使用方法
 
