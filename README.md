@@ -6,6 +6,10 @@ Artstation-spider
 
 BiliBIli-Spider
 
+新版/另外一个 爬虫链接 [**PHP-Images-Spider**](https://github.com/Chenjinyi/PHP-Images-Spider)
+
+https://github.com/Chenjinyi/PHP-Images-Spider 一个更强大的爬虫
+
 ## 简介
 
 #### ~~Bcy爬虫~~ 自动爬取半次元COS Bing Artstation Bilibili .....等图片网站 ,采用PHP编写
